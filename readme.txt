@@ -18,7 +18,7 @@ All data of your subscribers will be sent to your account in selzy.
 
 == Installation ==
 1. Install the plugin in wordpress.
-2. Generate selzy API key: https://www.selzy.com/ru/support/api/common/api-key/.
+2. Generate selzy API key: https://www.selzy.com/en/support/api/common/api-key/.
 3. Create new subscription form.
 4. Configure the subscription field.
 5. Connect it to selzy.
