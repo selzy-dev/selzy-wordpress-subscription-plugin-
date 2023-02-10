@@ -1,3 +1,14 @@
+import commonMessage from './common'
+import VueI18n from 'vue-i18n'
+import Vue from "vue";
+
+Vue.config.productionTip = false
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+    messages: commonMessage,
+    locale: document.getElementById('wpselzy-form').getAttribute('data-lang')
+});
 export default {
     state: {
         commonSettings: {
@@ -11,22 +22,22 @@ export default {
                     styles: {}
                 },
                 button: {
-                    value: 'Подписаться',
+                    value: i18n.t('subscribe'),
                     styles: {}
                 },
                 styles: {}
             },
             messages: {
-                successText: 'Спасибо за подписку.',
-                validationErrorText: 'Одно или несколько полей содержат ошибку. Пожалуйста проверьте и попробуйте снова.',
-                serverErrorText: 'При отправке запроса произошла ошибка. Пожалуйста, попробуйте позже.',
-                minLengthErrorText: 'Поле слишком короткое.',
-                maxLengthErrorText: 'Поле слишком длинное.',
-                minNumberErrorText: 'Число меньше допустимого минимума.',
-                maxNumberErrorText: 'Число превышает максимально допустимое.',
+                successText: i18n.t('message.successText'),
+                validationErrorText: i18n.t('errors.validationErrorText'),
+                serverErrorText: i18n.t('errors.serverErrorText'),
+                minLengthErrorText: i18n.t('errors.minLengthErrorText'),
+                maxLengthErrorText: i18n.t('errors.maxLengthErrorText'),
+                minNumberErrorText: i18n.t('errors.minNumberErrorText'),
+                maxNumberErrorText: i18n.t('errors.maxNumberErrorText'),
                 regExpErrorText: '',
-                requiredErrorText: 'Поле обязательно для заполнения.',
-                emailErrorText: 'Введенный адрес электронной почты недействителен.'
+                requiredErrorText: i18n.t('errors.requiredErrorText'),
+                emailErrorText: i18n.t('errors.emailErrorText')
             }
         }
     },

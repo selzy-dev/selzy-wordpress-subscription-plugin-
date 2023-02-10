@@ -1,44 +1,44 @@
 <template>
-    <div class="b-unisender-app__wrap">
-        <div class="b-unisender-app__header">
+    <div class="b-selzy-app__wrap">
+        <div class="b-selzy-app__header">
             <v-row>
                 <v-col cols="2">
                     <div class="b-table-colm-title">
                         <strong>
-                            Позиция
+                            {{ $t('field.position') }}
                         </strong>
                     </div>
                 </v-col>
                 <v-col cols="4">
                     <div class="b-table-colm-title">
                         <strong>
-                            Заголовок
+                            {{ $t('field.header') }}
                         </strong>
                     </div>
                 </v-col>
                 <v-col cols="4">
                     <div class="b-table-colm-title">
                         <strong>
-                            Переменная дополнительного поля в Unisender
+                            {{ $t('field.additionalField') }}
                         </strong>
                     </div>
                 </v-col>
                 <v-col cols="2">
                     <div class="b-table-colm-title">
                         <strong>
-                            Тип
+                            {{ $t('field.type') }}
                         </strong>
                     </div>
                 </v-col>
             </v-row>
         </div>
-        <div class="b-unisender-app__main">
-            <div class="b-unisender-app__accordions">
+        <div class="b-selzy-app__main">
+            <div class="b-selzy-app__accordions">
                 <draggable
                     v-model="items"
                     handle="[name=draggable]"
                 >
-                    <FieldAccordion class="b-unisender-app__accordion"
+                    <FieldAccordion class="b-selzy-app__accordion"
                                     v-for="(item, index) in items"
                                     :key="`accordion-${index}`"
                                     :index="index"
@@ -49,11 +49,11 @@
                 </draggable>
             </div>
         </div>
-        <div class="b-unisender-app__footer">
+        <div class="b-selzy-app__footer">
             <v-row justify="end">
                 <v-col cols="12" align="right">
-                    <div class="b-unisender-app__button-container">
-                        <div class="b-types-list b-unisender-app__types"
+                    <div class="b-selzy-app__button-container">
+                        <div class="b-types-list b-selzy-app__types"
                              :class="typesContainerShow ? 'active' : ''"
                         >
                             <div class="b-types-list__item"
@@ -64,13 +64,13 @@
                                  @click="addAccordion(item.id)"
                             >
                                 <Tooltip v-if="item.id === 3 && isPhoneSet">
-                                    <div slot="content" class="b-content" v-html="`<p style='white-space: nowrap'>Поле типа 'Номер телефона' уже существует.</p> <p>Вы можете добавить только одно поле данного типа в эту форму.</p>`"></div>
+                                    <div slot="content" class="b-content" v-html="$t('field.uniquePhone')"></div>
                                 </Tooltip>
                                 {{ item.name }}
                             </div>
                         </div>
                         <v-btn depressed color="primary" @click="toggleTypesContainer">
-                            + Добавить поле
+                            + {{ $t('field.add') }}
                         </v-btn>
                     </div>
                 </v-col>

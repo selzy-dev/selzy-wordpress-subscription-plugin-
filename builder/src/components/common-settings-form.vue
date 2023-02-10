@@ -4,7 +4,7 @@
             <v-row :align="showTitleStyle ? 'start' : 'end'">
                 <v-col cols="12" md="6">
                     <Field
-                        :title="'Заголовок формы'"
+                        :title="$t('message.formHeader')"
                         :value="title.value"
                         @updateValue="updateTitle"
                     ></Field>
@@ -15,12 +15,12 @@
                             <span class="b-link"
                                   @click="showTitleStyle = !showTitleStyle"
                             >
-                                Настройка оформления
+                                {{ $t('message.appearance') }}
                             </span>
                         </v-col>
                         <v-col cols="12"
                                v-if="showTitleStyle"
-                               :class="'unisenderFadeIn'"
+                               :class="'selzyFadeIn'"
                         >
                             <CommonSettingsStyles
                                 :type="'title'"
@@ -34,7 +34,7 @@
             <v-row :align="showDescriptionStyle ? 'start' : 'end'">
                 <v-col cols="12" md="6">
                     <Field
-                        :title="'Описание формы'"
+                        :title="$t('message.formDescription')"
                         :value="description.value"
                         :type="'textarea'"
                         @updateValue="updateDescription"
@@ -46,12 +46,12 @@
                             <span class="b-link"
                                   @click="showDescriptionStyle = !showDescriptionStyle"
                             >
-                                Настройка оформления
+                                {{ $t('form.settings') }}
                             </span>
                         </v-col>
                         <v-col cols="12"
                                v-if="showDescriptionStyle"
-                               :class="'unisenderFadeIn'"
+                               :class="'selzyFadeIn'"
                         >
                             <CommonSettingsStyles
                                 :type="'description'"
@@ -63,7 +63,7 @@
         </v-col>
         <v-col cols="12">
             <div class="b-label-title">
-                Оформление формы
+                {{ $t('form.design') }}
             </div>
             <v-row>
                 <v-col cols="12">
@@ -72,14 +72,14 @@
                             <span class="b-link"
                                   @click="showFormStyle = !showFormStyle"
                             >
-                                Настройка оформления
+                                {{ $t('form.settings') }}
                             </span>
                         </v-col>
                     </v-row>
                 </v-col>
                 <v-col cols="12"
                        v-if="showFormStyle"
-                       :class="'unisenderFadeIn'"
+                       :class="'selzyFadeIn'"
                 >
                     <v-row>
                         <v-col cols="6">
@@ -95,7 +95,7 @@
             <v-row :align="showButtonStyle ? 'start' : 'end'">
                 <v-col cols="12" md="6">
                     <Field
-                        :title="'Текст кнопки'"
+                        :title="$t('button.text')"
                         :value="button.value"
                         @updateValue="updateButton"
                     ></Field>
@@ -106,12 +106,12 @@
                             <span class="b-link"
                                   @click="showButtonStyle = !showButtonStyle"
                             >
-                                Настройка оформления
+                                {{ $t('form.settings') }}
                             </span>
                         </v-col>
                         <v-col cols="12"
                                v-if="showButtonStyle"
-                               :class="'unisenderFadeIn'"
+                               :class="'selzyFadeIn'"
                         >
                             <CommonSettingsStyles
                                 :type="'button'"

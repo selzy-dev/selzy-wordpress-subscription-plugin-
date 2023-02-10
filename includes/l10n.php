@@ -1,11 +1,11 @@
 <?php
 
-function wpunisender_is_valid_locale( $locale ) {
+function wpselzy_is_valid_locale( $locale ) {
 	$pattern = '/^[a-z]{2,3}(?:_[a-zA-Z_]{2,})?$/';
 	return (bool) preg_match( $pattern, $locale );
 }
 
-function wpunisender_is_rtl( $locale = '' ) {
+function wpselzy_is_rtl( $locale = '' ) {
 	static $rtl_locales = array(
 		'ar' => 'Arabic',
 		'ary' => 'Moroccan Arabic',
@@ -29,7 +29,7 @@ function wpunisender_is_rtl( $locale = '' ) {
 	return isset( $rtl_locales[$locale] );
 }
 
-function wpunisender_load_textdomain( $locale = '' ) {
+function wpselzy_load_textdomain( $locale = '' ) {
 	static $locales = array();
 
 	if ( empty( $locales ) ) {
@@ -51,7 +51,7 @@ function wpunisender_load_textdomain( $locale = '' ) {
 		$locales[] = $locale;
 	}
 
-	$domain = WPUNISENDER_TEXT_DOMAIN;
+	$domain = WPSELZY_TEXT_DOMAIN;
 
 	if ( is_textdomain_loaded( $domain ) ) {
 		unload_textdomain( $domain );
@@ -59,7 +59,7 @@ function wpunisender_load_textdomain( $locale = '' ) {
 
 	$mofile = sprintf( '%s-%s.mo', $domain, $locale );
 
-	$domain_path = path_join( WPUNISENDER_PLUGIN_DIR, 'languages' );
+	$domain_path = path_join( WPSELZY_PLUGIN_DIR, 'languages' );
 	$loaded = load_textdomain( $domain, path_join( $domain_path, $mofile ) );
 
 	if ( ! $loaded ) {

@@ -19,16 +19,16 @@ span.shortcode input {
 	margin: 0;
 }
 
-#wpunisender-form-list-table span.shortcode input,
-#wpunisender-form-editor span.shortcode input {
+#wpselzy-form-list-table span.shortcode input,
+#wpselzy-form-editor span.shortcode input {
 	background: transparent;
 }
 
-#wpunisender-form-list-table span.shortcode input {
+#wpselzy-form-list-table span.shortcode input {
 	color: #444;
 }
 
-#wpunisender-form-editor span.shortcode input {
+#wpselzy-form-editor span.shortcode input {
 	color: #fff;
 }
 

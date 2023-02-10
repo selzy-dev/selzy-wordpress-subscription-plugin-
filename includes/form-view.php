@@ -1,5 +1,5 @@
 <?php
-/* @var $this WPUNISENDER_Form */
+/* @var $this WPSELZY_Form */
 /* @var $form array */
 /* @var $contact_list int */
 
@@ -20,7 +20,7 @@ $messages = [
 ];
 ?>
 <script>
-    var unisenderValidationErrorTexts = {
+    var selzyValidationErrorTexts = {
         minLengthErrorText: '<?= $messages['min_length_error_text'] ?>',
         maxLengthErrorText: '<?= $messages['max_length_error_text'] ?>',
         minNumberErrorText: '<?= $messages['min_number_error_text'] ?>',
@@ -31,60 +31,60 @@ $messages = [
     }
 </script>
 <style>
-    .b-unisender-form {
+    .b-selzy-form {
         <?php foreach ($form['commonSettings']['form']['styles'] as $name => $style) {
-            echo UnisenderFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
+            echo SelzyFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
         } ?>
     }
-    .b-unisender-form .b-unisender-form__title {
+    .b-selzy-form .b-selzy-form__title {
         <?php foreach ($form['commonSettings']['form']['title']['styles'] as $name => $style) {
-            echo UnisenderFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
+            echo SelzyFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
         } ?>
     }
-    .b-unisender-form .b-unisender-form__description {
+    .b-selzy-form .b-selzy-form__description {
         <?php foreach ($form['commonSettings']['form']['description']['styles'] as $name => $style) {
-            echo UnisenderFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
+            echo SelzyFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
         } ?>
     }
-    .b-unisender-form .b-unisender-form__submit-button {
+    .b-selzy-form .b-selzy-form__submit-button {
         <?php foreach ($form['commonSettings']['form']['button']['styles'] as $name => $style) {
-            echo UnisenderFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
+            echo SelzyFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
         } ?>
     }
-    .b-unisender-form .b-unisender-form__button-box svg circle {
+    .b-selzy-form .b-selzy-form__button-box svg circle {
         fill: <?= $form['commonSettings']['form']['button']['styles']['backgroundColor'] ?> !important;
     }
     <?php foreach ($form['fields'] as $index => $field) : ?>
         <?php if ($field['field']['title']) :?>
-            <?php $fieldName = $field['field']['slug'] ? $field['field']['slug'] : 'unisender-field-' . $index; ?>
-            .b-unisender-form .b-unisender-field[data-unisender-field-name="<?= $fieldName ?>"],
-            .b-unisender-form .b-unisender-checkbox[data-unisender-field-name="<?= $fieldName ?>"] {
+            <?php $fieldName = $field['field']['slug'] ? $field['field']['slug'] : 'selzy-field-' . $index; ?>
+            .b-selzy-form .b-selzy-field[data-selzy-field-name="<?= $fieldName ?>"],
+            .b-selzy-form .b-selzy-checkbox[data-selzy-field-name="<?= $fieldName ?>"] {
                 <?php foreach ($field['styles'] as $name => $style) {
                     if ($style) {
                         if (
-                                UnisenderFormFieldStyle::getStyleName($name) === 'font-size' ||
-                                UnisenderFormFieldStyle::getStyleName($name) === 'font-weight' ||
-                                UnisenderFormFieldStyle::getStyleName($name) === 'color' ||
-                                UnisenderFormFieldStyle::getStyleName($name) === 'line-height' ||
-                                UnisenderFormFieldStyle::getStyleName($name) === 'margin'
+                                SelzyFormFieldStyle::getStyleName($name) === 'font-size' ||
+                                SelzyFormFieldStyle::getStyleName($name) === 'font-weight' ||
+                                SelzyFormFieldStyle::getStyleName($name) === 'color' ||
+                                SelzyFormFieldStyle::getStyleName($name) === 'line-height' ||
+                                SelzyFormFieldStyle::getStyleName($name) === 'margin'
                         ) {
-                            echo UnisenderFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
+                            echo SelzyFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
                         }
                     }
                 } ?>
             }
-            .b-unisender-form .b-unisender-field[data-unisender-field-name="<?= $fieldName ?>"] .b-unisender-field__input,
-            .b-unisender-form .b-unisender-checkbox[data-unisender-field-name="<?= $fieldName ?>"] .b-unisender-checkbox__input {
+            .b-selzy-form .b-selzy-field[data-selzy-field-name="<?= $fieldName ?>"] .b-selzy-field__input,
+            .b-selzy-form .b-selzy-checkbox[data-selzy-field-name="<?= $fieldName ?>"] .b-selzy-checkbox__input {
                 <?php foreach ($field['styles'] as $name => $style) {
                     if ($style) {
                         if (
-                            UnisenderFormFieldStyle::getStyleName($name) !== 'font-size' &&
-                            UnisenderFormFieldStyle::getStyleName($name) !== 'font-weight' &&
-                            UnisenderFormFieldStyle::getStyleName($name) !== 'color' &&
-                            UnisenderFormFieldStyle::getStyleName($name) !== 'line-height' &&
-                            UnisenderFormFieldStyle::getStyleName($name) !== 'margin'
+                            SelzyFormFieldStyle::getStyleName($name) !== 'font-size' &&
+                            SelzyFormFieldStyle::getStyleName($name) !== 'font-weight' &&
+                            SelzyFormFieldStyle::getStyleName($name) !== 'color' &&
+                            SelzyFormFieldStyle::getStyleName($name) !== 'line-height' &&
+                            SelzyFormFieldStyle::getStyleName($name) !== 'margin'
                         ) {
-                            echo UnisenderFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
+                            echo SelzyFormFieldStyle::getStyleName($name) . ': ' . $style . ";\n";
                         }
                     }
                 } ?>
@@ -93,25 +93,25 @@ $messages = [
     <?php endforeach;?>
 </style>
 
-<div class="b-unisender-form" data-contact-list="<?= $contact_list ?>">
-    <div class="b-unisender-form__header">
+<div class="b-selzy-form" data-contact-list="<?= $contact_list ?>">
+    <div class="b-selzy-form__header">
         <?php if ($formTitle): ?>
-            <div class="b-unisender-form__title">
+            <div class="b-selzy-form__title">
                 <?= $formTitle ?>
             </div>
         <?php endif;?>
 
         <?php if ($formDescription): ?>
-            <div class="b-unisender-form__description">
+            <div class="b-selzy-form__description">
                 <?= $formDescription ?>
             </div>
         <?php endif;?>
     </div>
 
-    <div class="b-unisender-form__main">
+    <div class="b-selzy-form__main">
         <?php foreach ($form['fields'] as $index => $field) : ?>
             <?php if ($field['field']['title']) :?>
-                <?= View::render(UnisenderFormFieldTypes::getView($field['field']['type']), [
+                <?= Selzy\ViewWrapper\View::render(SelzyFormFieldTypes::getView($field['field']['type']), [
                     'data' => $field,
                     'index' => $index
                 ]) ?>
@@ -119,10 +119,10 @@ $messages = [
         <?php endforeach; ?>
     </div>
 
-    <div class="b-unisender-form__footer">
+    <div class="b-selzy-form__footer">
         <?php if ($formButton): ?>
-            <div class="b-unisender-form__button-box">
-                <div class="b-unisender-form__submit-button">
+            <div class="b-selzy-form__button-box">
+                <div class="b-selzy-form__submit-button">
                     <?= $formButton ?>
                 </div>
 
@@ -155,21 +155,21 @@ $messages = [
             </div>
         <?php endif;?>
 
-        <div class="b-unisender-form__messages">
+        <div class="b-selzy-form__messages">
             <?php if($messages['success_text']):?>
-                <div class="b-unisender-form__message b-unisender-form__message_success-text b-unisender-form__message_success">
+                <div class="b-selzy-form__message b-selzy-form__message_success-text b-selzy-form__message_success">
                     <?= $messages['success_text'] ?>
                 </div>
             <?php endif;?>
 
             <?php if($messages['validation_error_text']):?>
-                <div class="b-unisender-form__message b-unisender-form__message_validation-error-text b-unisender-form__message_error">
+                <div class="b-selzy-form__message b-selzy-form__message_validation-error-text b-selzy-form__message_error">
                     <?= $messages['validation_error_text'] ?>
                 </div>
             <?php endif;?>
 
             <?php if($messages['server_error_text']):?>
-                <div class="b-unisender-form__message b-unisender-form__message_server-error-text b-unisender-form__message_error">
+                <div class="b-selzy-form__message b-selzy-form__message_server-error-text b-selzy-form__message_error">
                     <?= $messages['server_error_text'] ?>
                 </div>
             <?php endif;?>

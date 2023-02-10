@@ -5,14 +5,14 @@
  */
 
 $title = $data['field']['title'];
-$name = $data['field']['slug'] ? $data['field']['slug'] : 'unisender-field-' . $index;
+$name = $data['field']['slug'] ? $data['field']['slug'] : 'selzy-field-' . $index;
 ?>
-<div class="b-unisender-checkbox b-unisender-form__field" data-unisender-field-name="<?= $name ?>">
-    <input name="<?= $data['field']['slug'] ?>" type="checkbox" id="<?= $data['field']['slug'] ?>" class="b-unisender-checkbox__input" data-unisender-field data-validation-rules="<?= htmlspecialchars(json_encode($data['validations'])) ?>">
-    <label for="<?= $data['field']['slug'] ?>" class="b-unisender-checkbox__label">
+<div class="b-selzy-checkbox b-selzy-form__field" data-selzy-field-name="<?= $name ?>">
+    <input name="<?= $data['field']['slug'] ?>" type="checkbox" id="<?= $data['field']['slug'] ?>" class="b-selzy-checkbox__input" data-selzy-field data-validation-rules="<?= htmlspecialchars(json_encode($data['validations'])) ?>">
+    <label for="<?= $data['field']['slug'] ?>" class="b-selzy-checkbox__label">
         <?= $title ?>
     </label>
-    <div class="b-unisender-checkbox__error-text" data-unisender-field-error>
+    <div class="b-selzy-checkbox__error-text" data-selzy-field-error>
         Какой-то текст ошибки
     </div>
 </div>

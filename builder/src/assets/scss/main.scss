@@ -4,10 +4,10 @@
 @import 'redefinition';
 @import 'animations';
 // components
-@import './components/unisender-app';
+@import './components/selzy-app';
   @import './components/content';
 
-.b-unisender-app {
+.b-selzy-app {
   @import './components/table-colm-title';
   @import './components/accordion';
   @import './components/circle-counter';
@@ -24,7 +24,7 @@
   @import './components/icon-checkbox-list';
   @import './components/icon-checkbox';
   @import './components/offsets';
-  @import './components/unisender-app-common-settings';
+  @import './components/selzy-app-common-settings';
   @import './components/link';
   @import './components/text';
 }

@@ -1,6 +1,6 @@
 <?php
 
-function wpunisender_current_action() {
+function wpselzy_current_action() {
 	if ( isset( $_REQUEST['action'] ) and -1 != $_REQUEST['action'] ) {
 		return $_REQUEST['action'];
 	}

@@ -7,7 +7,7 @@
  * @param string $to Optional. The newline character that is used in the output.
  * @return string Normalized text.
  */
-function wpunisender_normalize_newline( $text, $to = "\n" ) {
+function wpselzy_normalize_newline( $text, $to = "\n" ) {
 	if ( ! is_string( $text ) ) {
 		return $text;
 	}
@@ -30,18 +30,18 @@ function wpunisender_normalize_newline( $text, $to = "\n" ) {
  * @param string $to Optional. The newline character that is used in the output.
  * @return mixed Processed value.
  */
-function wpunisender_normalize_newline_deep( $arr, $to = "\n" ) {
+function wpselzy_normalize_newline_deep( $arr, $to = "\n" ) {
 	if ( is_array( $arr ) ) {
 		$result = array();
 
 		foreach ( $arr as $key => $text ) {
-			$result[$key] = wpunisender_normalize_newline_deep( $text, $to );
+			$result[$key] = wpselzy_normalize_newline_deep( $text, $to );
 		}
 
 		return $result;
 	}
 
-	return wpunisender_normalize_newline( $arr, $to );
+	return wpselzy_normalize_newline( $arr, $to );
 }
 
 /**
@@ -50,12 +50,12 @@ function wpunisender_normalize_newline_deep( $arr, $to = "\n" ) {
  * @param string $context Context used to decide allowed tags and attributes.
  * @return array Array of allowed HTML tags and their allowed attributes.
  */
-function wpunisender_kses_allowed_html( $context = 'form' ) {
+function wpselzy_kses_allowed_html( $context = 'form' ) {
 	static $allowed_tags = array();
 
 	if ( isset( $allowed_tags[$context] ) ) {
 		return apply_filters(
-			'wpunisender_kses_allowed_html',
+			'wpselzy_kses_allowed_html',
 			$allowed_tags[$context],
 			$context
 		);
@@ -184,7 +184,7 @@ function wpunisender_kses_allowed_html( $context = 'form' ) {
 	}
 
 	return apply_filters(
-		'wpunisender_kses_allowed_html',
+		'wpselzy_kses_allowed_html',
 		$allowed_tags[$context],
 		$context
 	);
@@ -198,10 +198,10 @@ function wpunisender_kses_allowed_html( $context = 'form' ) {
  * @param string $context Context used to decide allowed tags and attributes.
  * @return string Filtered text with allowed HTML tags and attributes intact.
  */
-function wpunisender_kses( $input, $context = 'form' ) {
+function wpselzy_kses( $input, $context = 'form' ) {
 	$output = wp_kses(
 		$input,
-		wpunisender_kses_allowed_html( $context )
+		wpselzy_kses_allowed_html( $context )
 	);
 
 	return $output;

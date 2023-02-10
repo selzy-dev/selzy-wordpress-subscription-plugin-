@@ -4,15 +4,15 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit();
 }
 
-function wpunisender_delete_plugin() {
+function wpselzy_delete_plugin() {
 	global $wpdb;
 
-	delete_option( 'wpunisender' );
+	delete_option( 'wpselzy' );
 
 	$posts = get_posts(
 		array(
 			'numberposts' => -1,
-			'post_type' => 'wpunisender_form',
+			'post_type' => 'wpselzy_form',
 			'post_status' => 'any',
 		)
 	);
@@ -23,10 +23,10 @@ function wpunisender_delete_plugin() {
 
 	$wpdb->query( sprintf(
 		"DROP TABLE IF EXISTS %s",
-		$wpdb->prefix . 'unisender'
+		$wpdb->prefix . 'selzy'
 	) );
 }
 
-if ( ! defined( 'WPUNISENDER_VERSION' ) ) {
-	wpunisender_delete_plugin();
+if ( ! defined( 'WPSELZY_VERSION' ) ) {
+	wpselzy_delete_plugin();
 }

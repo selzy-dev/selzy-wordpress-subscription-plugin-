@@ -1,8 +1,8 @@
 <?php
-function wpunisender_get_builder_css_urls()
+function wpselzy_get_builder_css_urls()
 {
-    $plugin_root_url = WPUNISENDER_PLUGIN_URL;
-    $plugin_root_dir = WPUNISENDER_PLUGIN_DIR;
+    $plugin_root_url = WPSELZY_PLUGIN_URL;
+    $plugin_root_dir = WPSELZY_PLUGIN_DIR;
     $builder_assets_dir = $plugin_root_dir . DIRECTORY_SEPARATOR . 'builder' . DIRECTORY_SEPARATOR . 'dist';
     $builder_css_dir = $builder_assets_dir . DIRECTORY_SEPARATOR . 'css';
     $dist_root_url = $plugin_root_url . '/builder/dist';
@@ -21,10 +21,10 @@ function wpunisender_get_builder_css_urls()
     return $css_urls;
 }
 
-function wpunisender_get_builder_js_urls()
+function wpselzy_get_builder_js_urls()
 {
-    $plugin_root_url = WPUNISENDER_PLUGIN_URL;
-    $plugin_root_dir = WPUNISENDER_PLUGIN_DIR;
+    $plugin_root_url = WPSELZY_PLUGIN_URL;
+    $plugin_root_dir = WPSELZY_PLUGIN_DIR;
     $builder_assets_dir = $plugin_root_dir . DIRECTORY_SEPARATOR . 'builder' . DIRECTORY_SEPARATOR . 'dist';
     $builder_js_dir = $builder_assets_dir . DIRECTORY_SEPARATOR . 'js';
     $dist_root_url = $plugin_root_url . '/builder/dist';

@@ -1,0 +1,225 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-01 14:31+0700\n"
+"PO-Revision-Date: 2023-02-10 21:48+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: .\n"
+
+#: load.php:143
+#, php-format
+msgid "Form %d"
+msgstr ""
+
+#: includes/controller.php:21
+msgid "Form settings are not configured"
+msgstr "Дані форми не налаштовані"
+
+#: includes/controller.php:26
+msgid "email is not set"
+msgstr "email не заданий"
+
+#: includes/controller.php:31
+msgid "contact_list is not set"
+msgstr "contact_list не встановлений"
+
+#: includes/controller.php:70
+msgid "You have successfully subscribed"
+msgstr "Ви успішно підписалися"
+
+#: includes/form-functions.php:48
+msgid "Not found"
+msgstr "Не знайдено"
+
+#: includes/form.php:47 admin/admin.php:29 admin/admin.php:277
+msgid "Forms"
+msgstr "Форми"
+
+#: includes/form.php:48
+msgid "Form"
+msgstr ""
+
+#: includes/form.php:112 includes/form.php:369
+msgid "No title"
+msgstr "Без назви"
+
+#: includes/form.php:226
+#, php-format
+msgid ""
+"<code>%1$s</code> property of a <code>WPSELZY_Form</code> object is "
+"<strong>no longer accessible</strong>. Use <code>%2$s</code> method instead."
+msgstr ""
+
+#: includes/functions.php:263
+#, php-format
+msgid "HTTP Response: %1$s %2$s %3$s from %4$s"
+msgstr ""
+
+#: admin/edit-form.php:31 admin/edit-form.php:179
+msgid "Save"
+msgstr "Зберегти"
+
+#: admin/edit-form.php:42 admin/admin.php:38
+msgid "Add new form"
+msgstr "Додати нову форму"
+
+#: admin/edit-form.php:44 admin/admin.php:28
+msgid "Edit form"
+msgstr "Редагувати форму"
+
+#: admin/edit-form.php:53 admin/admin.php:39 admin/admin.php:284
+msgid "Add new"
+msgstr "Додати нову"
+
+#: admin/edit-form.php:105
+msgid "Enter name here"
+msgstr "Введіть назву тут"
+
+#: admin/edit-form.php:129
+msgid "Copy this shortcode and paste it into your post, page or text widget:"
+msgstr ""
+"Скопіюйте цей код і вставте його у ваш пост, сторінку або текстовий віджет:"
+
+#: admin/edit-form.php:145
+msgid "Link to Selzy list:"
+msgstr "Прив'язати до списку Selzy:"
+
+#: admin/edit-form.php:171
+msgid "Status"
+msgstr ""
+
+#: admin/edit-form.php:187 admin/includes/class-forms-list-table.php:165
+msgid "Duplicate"
+msgstr "Дублювати"
+
+#: admin/edit-form.php:205 admin/includes/class-forms-list-table.php:90
+msgid "Delete"
+msgstr "Видалити"
+
+#: admin/edit-form.php:206
+msgid "Are you sure your want to delete this form?"
+msgstr "Ви впевненні, що хочете видалити цю форму?"
+
+#: admin/admin.php:18 admin/admin.php:19
+msgid "Selzy"
+msgstr ""
+
+#: admin/admin.php:109 admin/admin.php:163
+msgid "You're not allowed to edit this element."
+msgstr "Ви не можете редагувати цей елемент."
+
+#: admin/admin.php:207
+msgid "You're not allowed to delete this element."
+msgstr "Ви не можете видаляти цей елемент."
+
+#: admin/admin.php:212
+msgid "Delete error."
+msgstr "Помилка при видаленні."
+
+#: admin/admin.php:293
+#, php-format
+msgid "Search results on &#8220;%s&#8221;"
+msgstr "Результати пошуку на запит &#8220;%s&#8221;"
+
+#: admin/admin.php:314
+msgid "Search"
+msgstr "Форма пошуку"
+
+#: admin/admin.php:348
+msgid "Form is created."
+msgstr "Форма створена."
+
+#: admin/admin.php:350
+msgid "Form is saved."
+msgstr "Форма збережена."
+
+#: admin/admin.php:352
+msgid "Form is deleted."
+msgstr "Форма видалена."
+
+#: admin/admin.php:366
+msgid "Delete form error."
+msgstr "Виникла помилка при видаленні форми."
+
+#: admin/admin.php:389
+msgid "Settings are saved."
+msgstr "Налаштування збережені."
+
+#: admin/admin.php:403
+#, php-format
+msgid ""
+"Для начала работы с Selzy, вам необходимо указать API Key в %1$sнастройках "
+"плагина%2$s."
+msgstr ""
+"Для початку роботи з Selzy, вам необхідно вказати API Key у "
+"%1$sналаштуваннях плагіна%2$s."
+
+#: admin/admin.php:446 admin/includes/settings-page.php:9
+msgid "Settings"
+msgstr "Налаштування"
+
+#: admin/admin.php:469
+#, php-format
+msgid ""
+"<strong>Selzy %1$s требует WordPress %2$s или новее.</strong> Пожалуйста, "
+"сначала <a href=\"%3$s\">обновите WordPress</a>."
+msgstr ""
+
+#: admin/admin.php:494
+msgid "You're not allowed to edit this form."
+msgstr "Ви не можете редагувати цю форму."
+
+#: admin/includes/settings-page.php:8 admin/includes/settings-page.php:28
+msgid "Selzy Settings"
+msgstr "Налаштування Selzy"
+
+#: admin/includes/settings-page.php:40
+msgid "Where to get Selzy's API key"
+msgstr "Де взяти API-ключ Selzy"
+
+#: admin/includes/class-forms-list-table.php:12
+msgid "Name"
+msgstr "Назва"
+
+#: admin/includes/class-forms-list-table.php:13
+msgid "Shortcode"
+msgstr ""
+
+#: admin/includes/class-forms-list-table.php:14
+msgid "Author"
+msgstr ""
+
+#: admin/includes/class-forms-list-table.php:15
+msgid "Date"
+msgstr ""
+
+#: admin/includes/class-forms-list-table.php:122
+#, php-format
+msgid "Edit &#8220;%s&#8221;"
+msgstr "Редагувати &#8220;%s&#8221;"
+
+#: admin/includes/class-forms-list-table.php:147
+msgid "Edit"
+msgstr "Редагувати"
+
+#: admin/includes/class-forms-list-table.php:212
+#, php-format
+msgid "%1$s %2$s"
+msgstr ""
+
+#: admin/includes/class-forms-list-table.php:214
+msgid "Y/m/d"
+msgstr ""
+
+#: admin/includes/class-forms-list-table.php:216
+msgid "g:i a"
+msgstr ""

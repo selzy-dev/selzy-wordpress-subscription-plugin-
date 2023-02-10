@@ -17,7 +17,7 @@
         <textarea :disabled="disabled" v-if="type === 'textarea' && change" class="b-field__input" :value="value" @change="updateValue" style="height: 100px"></textarea>
         <div class="b-field__errors">
             <p>
-                Поле обязательно для заполнения
+                {{ $t('requiredField') }}
             </p>
         </div>
     </label>

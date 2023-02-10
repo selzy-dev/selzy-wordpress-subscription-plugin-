@@ -2,7 +2,7 @@
     <v-row>
         <v-col cols="12">
             <div class="b-label-title">
-                Оформление
+                {{ $t('design') }}
             </div>
             <v-row>
                 <v-col cols="12" lg="6">
@@ -10,7 +10,7 @@
                         <v-col cols="12" sm="6">
                             <BoxField
                                 :options="fontSizes"
-                                :title="'Размер:'"
+                                :title="$t('size')"
                                 :value="values().fontSize"
                                 @updateValue="updateFontSize"
                             ></BoxField>
@@ -18,14 +18,14 @@
                         <v-col cols="12" sm="6">
                             <BoxField
                                 :options="fontWeights"
-                                :title="'Толщина:'"
+                                :title="$t('width')"
                                 :value="values().fontWeight"
                                 @updateValue="updateFontWeight"
                             ></BoxField>
                         </v-col>
                         <v-col cols="12" sm="6">
                             <BoxField
-                                :title="'Цвет:'"
+                                :title="$t('color')"
                                 :type="'color'"
                                 :value="values().color"
                                 @updateValue="updateColor"
@@ -34,14 +34,14 @@
                         <v-col cols="12" sm="6">
                             <BoxField
                                 :options="lineHeights"
-                                :title="'Интервал:'"
+                                :title="$t('lineHeights')"
                                 :value="values().lineHeight"
                                 @updateValue="updateLineHeight"
                             ></BoxField>
                         </v-col>
                         <v-col cols="12" sm="6">
                             <BoxField
-                                :title="'Фон:'"
+                                :title="$t('background')"
                                 :type="'color'"
                                 :value="values().backgroundColor"
                                 @updateValue="updateBackgroundColor"
@@ -66,7 +66,7 @@
                                 </v-col>
                                 <v-col cols="12">
                                     <BorderField
-                                        :title="'Рамка:'"
+                                        :title="$t('border')"
                                         :value="borderValues"
                                         @updateWidthValue="updateBorderWidth"
                                         @updateStyleValue="updateBorderStyle"
@@ -81,7 +81,7 @@
                     <v-row>
                         <v-col>
                             <div class="b-label-title">
-                                Отступы
+                                {{ $t('margin') }}
                             </div>
                             <Offsets
                                 :paddings="values().padding"

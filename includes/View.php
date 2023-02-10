@@ -1,10 +1,11 @@
 <?php
+namespace Selzy\ViewWrapper;
 
 class View
 {
     public static function render($viewName, $data = array())
     {
-        $filePath = WPUNISENDER_PLUGIN_DIR . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "$viewName.php";
+        $filePath = WPSELZY_PLUGIN_DIR . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "$viewName.php";
         if ($viewName && file_exists($filePath)) {
             extract($data);
             ob_start();

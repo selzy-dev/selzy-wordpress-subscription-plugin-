@@ -4,13 +4,14 @@
  * Returns the URL to a plugin file.
  *
  * @param string $path File path relative to the plugin root directory.
+ *
  * @return string URL.
  */
-function wpunisender_plugin_url( $path = '' ) {
-	$url = plugins_url( $path, WPUNISENDER_PLUGIN );
+function wpselzy_plugin_url( $path = '' ) {
+	$url = plugins_url( $path, WPSELZY_PLUGIN );
 
 	if ( is_ssl()
-	and 'http:' == substr( $url, 0, 5 ) ) {
+	     and 'http:' == substr( $url, 0, 5 ) ) {
 		$url = 'https:' . substr( $url, 5 );
 	}
 
@@ -24,11 +25,12 @@ function wpunisender_plugin_url( $path = '' ) {
  * @param string $nonce Nonce value that was used for verification.
  * @param string $action Optional. Context to what is taking place.
  *                       Default 'wp_rest'.
+ *
  * @return int|bool 1 if the nonce is generated between 0-12 hours ago,
  *                  2 if the nonce is generated between 12-24 hours ago.
  *                  False if the nonce is invalid.
  */
-function wpunisender_verify_nonce( $nonce, $action = 'wp_rest' ) {
+function wpselzy_verify_nonce( $nonce, $action = 'wp_rest' ) {
 	return wp_verify_nonce( $nonce, $action );
 }
 
@@ -38,21 +40,22 @@ function wpunisender_verify_nonce( $nonce, $action = 'wp_rest' ) {
  *
  * @param string $action Optional. Context to what is taking place.
  *                       Default 'wp_rest'.
+ *
  * @return string The token.
  */
-function wpunisender_create_nonce( $action = 'wp_rest' ) {
-    return wp_create_nonce( $action );
+function wpselzy_create_nonce( $action = 'wp_rest' ) {
+	return wp_create_nonce( $action );
 }
-
 
 
 /**
  * Converts multi-dimensional array to a flat array.
  *
  * @param mixed $input Array or item of array.
+ *
  * @return array Flatten array.
  */
-function wpunisender_array_flatten( $input ) {
+function wpselzy_array_flatten( $input ) {
 	if ( ! is_array( $input ) ) {
 		return array( $input );
 	}
@@ -60,7 +63,7 @@ function wpunisender_array_flatten( $input ) {
 	$output = array();
 
 	foreach ( $input as $value ) {
-		$output = array_merge( $output, wpunisender_array_flatten( $value ) );
+		$output = array_merge( $output, wpselzy_array_flatten( $value ) );
 	}
 
 	return $output;
@@ -70,18 +73,19 @@ function wpunisender_array_flatten( $input ) {
  * Returns a formatted string of HTML attributes.
  *
  * @param array $atts Associative array of attribute name and value pairs.
+ *
  * @return string Formatted HTML attributes.
  */
-function wpunisender_format_atts( $atts ) {
+function wpselzy_format_atts( $atts ) {
 	$html = '';
 
 	$prioritized_atts = array( 'type', 'name', 'value' );
 
 	foreach ( $prioritized_atts as $att ) {
-		if ( isset( $atts[$att] ) ) {
-			$value = trim( $atts[$att] );
-			$html .= sprintf( ' %s="%s"', $att, esc_attr( $value ) );
-			unset( $atts[$att] );
+		if ( isset( $atts[ $att ] ) ) {
+			$value = trim( $atts[ $att ] );
+			$html  .= sprintf( ' %s="%s"', $att, esc_attr( $value ) );
+			unset( $atts[ $att ] );
 		}
 	}
 
@@ -111,17 +115,18 @@ function wpunisender_format_atts( $atts ) {
  * @param string $url Link URL.
  * @param string $anchor_text Anchor label text.
  * @param string|array $args Optional. Link options.
+ *
  * @return string Formatted anchor element.
  */
-function wpunisender_link( $url, $anchor_text, $args = '' ) {
+function wpselzy_link( $url, $anchor_text, $args = '' ) {
 	$defaults = array(
-		'id' => '',
+		'id'    => '',
 		'class' => '',
 	);
 
 	$args = wp_parse_args( $args, $defaults );
 	$args = array_intersect_key( $args, $defaults );
-	$atts = wpunisender_format_atts( $args );
+	$atts = wpselzy_format_atts( $args );
 
 	$link = sprintf( '<a href="%1$s"%3$s>%2$s</a>',
 		esc_url( $url ),
@@ -136,7 +141,7 @@ function wpunisender_link( $url, $anchor_text, $args = '' ) {
 /**
  * Returns the current request URL.
  */
-function wpunisender_get_request_uri() {
+function wpselzy_get_request_uri() {
 	static $request_uri = '';
 
 	if ( empty( $request_uri ) ) {
@@ -150,9 +155,10 @@ function wpunisender_get_request_uri() {
 /**
  * Registers post types used for this plugin.
  */
-function wpunisender_register_post_types() {
-	if ( class_exists( 'WPUNISENDER_Form' ) ) {
-		WPUNISENDER_Form::register_post_type();
+function wpselzy_register_post_types() {
+	if ( class_exists( 'WPSELZY_Form' ) ) {
+		WPSELZY_Form::register_post_type();
+
 		return true;
 	} else {
 		return false;
@@ -166,9 +172,10 @@ function wpunisender_register_post_types() {
  *
  * @param array $args URL query parameters.
  * @param string $key Optional. If specified, used to prefix key name.
+ *
  * @return string Query string.
  */
-function wpunisender_build_query( $args, $key = '' ) {
+function wpselzy_build_query( $args, $key = '' ) {
 	$sep = '&';
 	$ret = array();
 
@@ -186,7 +193,7 @@ function wpunisender_build_query( $args, $key = '' ) {
 		}
 
 		if ( is_array( $v ) or is_object( $v ) ) {
-			array_push( $ret, wpunisender_build_query( $v, $k ) );
+			array_push( $ret, wpselzy_build_query( $v, $k ) );
 		} else {
 			array_push( $ret, $k . '=' . urlencode( $v ) );
 		}
@@ -202,10 +209,11 @@ function wpunisender_build_query( $args, $key = '' ) {
  * @see http://www.w3.org/TR/html5/infrastructure.html#code-unit-length
  *
  * @param string $string Input string.
+ *
  * @return int|bool The number of code units, or false if
  *                  mb_convert_encoding is not available.
  */
-function wpunisender_count_code_units( $string ) {
+function wpselzy_count_code_units( $string ) {
 	static $use_mb = null;
 
 	if ( is_null( $use_mb ) ) {
@@ -236,8 +244,9 @@ function wpunisender_count_code_units( $string ) {
 /**
  * Returns true if WordPress is running on the localhost.
  */
-function wpunisender_is_localhost() {
+function wpselzy_is_localhost() {
 	$server_name = strtolower( $_SERVER['SERVER_NAME'] );
+
 	return in_array( $server_name, array( 'localhost', '127.0.0.1' ) );
 }
 
@@ -248,17 +257,17 @@ function wpunisender_is_localhost() {
  * @param array $request Request arguments.
  * @param array|WP_Error $response The response or WP_Error on failure.
  */
-function wpunisender_log_remote_request( $url, $request, $response ) {
+function wpselzy_log_remote_request( $url, $request, $response ) {
 	$log = sprintf(
-		/* translators: 1: response code, 2: message, 3: body, 4: URL */
-		__( 'HTTP Response: %1$s %2$s %3$s from %4$s', 'unisender' ),
+	/* translators: 1: response code, 2: message, 3: body, 4: URL */
+		__( 'HTTP Response: %1$s %2$s %3$s from %4$s', 'selzy' ),
 		(int) wp_remote_retrieve_response_code( $response ),
 		wp_remote_retrieve_response_message( $response ),
 		wp_remote_retrieve_body( $response ),
 		$url
 	);
 
-	$log = apply_filters( 'wpunisender_log_remote_request',
+	$log = apply_filters( 'wpselzy_log_remote_request',
 		$log, $url, $request, $response
 	);
 
@@ -272,11 +281,12 @@ function wpunisender_log_remote_request( $url, $request, $response ) {
  * Anonymizes an IP address by masking local part.
  *
  * @param string $ip_addr The original IP address.
+ *
  * @return string|bool Anonymized IP address, or false on failure.
  */
-function wpunisender_anonymize_ip_addr( $ip_addr ) {
+function wpselzy_anonymize_ip_addr( $ip_addr ) {
 	if ( ! function_exists( 'inet_ntop' )
-	or ! function_exists( 'inet_pton' ) ) {
+	     or ! function_exists( 'inet_pton' ) ) {
 		return $ip_addr;
 	}
 

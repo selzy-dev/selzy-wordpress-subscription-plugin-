@@ -19,7 +19,7 @@
                 :value="borderStyleValue"
                 required
         >
-            <option value="" disabled selected hidden>Стиль</option>
+            <option value="" disabled selected hidden>{{ $t('style') }}</option>
             <option
                 v-for="style in borderStyleList"
                 :key="style"
@@ -33,7 +33,7 @@
                @focus="focusHandle"
                @blur="blurHandle"
                @input="colorChangeHandle"
-               placeholder="Цвет"
+               placeholder="$t('color')"
         >
 <!--        <div class="b-box-field__actions">-->
 <!--            <div class="b-box-field__color" :style="{backgroundColor: borderColorValue}"></div>-->

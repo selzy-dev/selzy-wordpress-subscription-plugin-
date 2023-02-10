@@ -1,30 +1,24 @@
 === Selzy ===
-Contributors: selzy-inc
 Tags: selzy, subscribe
-Donate link: https://selzy.com/
-Requires at least: 5.0
-Tested up to: 5.0
+Donate link: https://selzy.com/ua/
+Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 4.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The plugin allows you to create a subscription form on your website and send user data to selzy.
+The plugin allows you to create a subscription form on your website and send user data to Selzy.
 
 == Description ==
-The plugin allows you to create a subscription form on your website and send user data to selzy.
+The plugin allows you to create a subscription form on your website and send user data to Selzy.
 
-All data of your subscribers will be sent to your account in selzy.
+All data of your subscribers will be sent to your account in Selzy.
 
 == Installation ==
 1. Install the plugin in wordpress.
-2. Generate selzy API key: https://www.selzy.com/en/support/api/common/api-key/.
+2. Generate Selzy API key: https://www.selzy.com/ua/support/api/common/api-key/.
 3. Create new subscription form.
 4. Configure the subscription field.
-5. Connect it to selzy.
-
-== Frequently Asked Questions ==
-For all questions mail plugins@selzy.com.
+5. Connect it to Selzy.
 
 == Screenshots ==
 1. Settings
