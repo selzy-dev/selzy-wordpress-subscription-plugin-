@@ -4,15 +4,15 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 	require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
-class WPUNISENDER_Form_List_Table extends WP_List_Table {
+class WPSELZY_Form_List_Table extends WP_List_Table {
 
 	public static function define_columns() {
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
-			'title' => __( 'Название', 'unisender' ),
-			'shortcode' => __( 'Шорткод', 'unisender' ),
-			'author' => __( 'Автор', 'unisender' ),
-			'date' => __( 'Дата', 'unisender' ),
+			'title' => __( 'Name', 'selzy' ),
+			'shortcode' => __( 'Shortcode', 'selzy' ),
+			'author' => __( 'Author', 'selzy' ),
+			'date' => __( 'Date', 'selzy' ),
 		);
 
 		return $columns;
@@ -28,7 +28,7 @@ class WPUNISENDER_Form_List_Table extends WP_List_Table {
 
 	public function prepare_items() {
 		$current_screen = get_current_screen();
-		$per_page = $this->get_items_per_page( 'wpunisender_forms_per_page' );
+		$per_page = $this->get_items_per_page( 'wpselzy_forms_per_page' );
 
 		$args = array(
 			'posts_per_page' => $per_page,
@@ -59,9 +59,9 @@ class WPUNISENDER_Form_List_Table extends WP_List_Table {
 			}
 		}
 
-		$this->items = WPUNISENDER_Form::find( $args );
+		$this->items = WPSELZY_Form::find( $args );
 
-		$total_items = WPUNISENDER_Form::count();
+		$total_items = WPSELZY_Form::count();
 		$total_pages = ceil( $total_items / $per_page );
 
 		$this->set_pagination_args( array(
@@ -87,7 +87,7 @@ class WPUNISENDER_Form_List_Table extends WP_List_Table {
 
 	protected function get_bulk_actions() {
 		$actions = array(
-			'delete' => __( 'Удалить', 'unisender' ),
+			'delete' => __( 'Delete', 'selzy' ),
 		);
 
 		return $actions;
@@ -111,7 +111,7 @@ class WPUNISENDER_Form_List_Table extends WP_List_Table {
 				'post' => absint( $item->id() ),
 				'action' => 'edit',
 			),
-			menu_page_url( 'wpunisender', false )
+			menu_page_url( 'wpselzy', false )
 		);
 
 		$output = sprintf(
@@ -119,7 +119,7 @@ class WPUNISENDER_Form_List_Table extends WP_List_Table {
 			esc_url( $edit_link ),
 			esc_attr( sprintf(
 				/* translators: %s: title of form */
-				__( 'Редактировать &#8220;%s&#8221;', 'unisender' ),
+				__( 'Edit &#8220;%s&#8221;', 'selzy' ),
 				$item->title()
 			) ),
 			esc_html( $item->title() )
@@ -140,29 +140,29 @@ class WPUNISENDER_Form_List_Table extends WP_List_Table {
 				'post' => absint( $item->id() ),
 				'action' => 'edit',
 			),
-			menu_page_url( 'wpunisender', false )
+			menu_page_url( 'wpselzy', false )
 		);
 
 		$actions = array(
-			'edit' => wpunisender_link( $edit_link, __( 'Редактировать', 'unisender' ) ),
+			'edit' => wpselzy_link( $edit_link, __( 'Edit', 'selzy' ) ),
 		);
 
-		if ( current_user_can( 'wpunisender_edit_form', $item->id() ) ) {
+		if ( current_user_can( 'wpselzy_edit_form', $item->id() ) ) {
 			$copy_link = add_query_arg(
 				array(
 					'post' => absint( $item->id() ),
 					'action' => 'copy',
 				),
-				menu_page_url( 'wpunisender', false )
+				menu_page_url( 'wpselzy', false )
 			);
 
 			$copy_link = wp_nonce_url(
 				$copy_link,
-				'wpunisender-copy-form_' . absint( $item->id() )
+				'wpselzy-copy-form_' . absint( $item->id() )
 			);
 
 			$actions = array_merge( $actions, array(
-				'copy' => wpunisender_link( $copy_link, __( 'Дублировать', 'unisender' ) ),
+				'copy' => wpselzy_link( $copy_link, __( 'Duplicate', 'selzy' ) ),
 			) );
 		}
 
@@ -209,11 +209,11 @@ class WPUNISENDER_Form_List_Table extends WP_List_Table {
 
 		$t_time = sprintf(
 			/* translators: 1: date, 2: time */
-			__( '%1$s %2$s', 'unisender' ),
+			__( '%1$s %2$s', 'selzy' ),
 			/* translators: date format, see https://www.php.net/date */
-			$datetime->format( __( 'Y/m/d', 'unisender' ) ),
+			$datetime->format( __( 'Y/m/d', 'selzy' ) ),
 			/* translators: time format, see https://www.php.net/date */
-			$datetime->format( __( 'g:i a', 'unisender' ) )
+			$datetime->format( __( 'g:i a', 'selzy' ) )
 		);
 
 		return $t_time;

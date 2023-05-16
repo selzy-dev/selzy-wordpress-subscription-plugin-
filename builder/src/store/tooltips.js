@@ -1,3 +1,14 @@
+import commonMessage from './common'
+import VueI18n from 'vue-i18n'
+import Vue from "vue";
+
+Vue.config.productionTip = false
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+    messages: commonMessage,
+    locale: document.getElementById('wpselzy-form').getAttribute('data-lang')
+});
 export default {
     state: {
         tooltips: {
@@ -43,10 +54,10 @@ export default {
                 required: '',
                 regExp: '',
             },
-            slug: '<p>Прежде чем использовать дополнительные поля, необходимо создать их на платформе Unisender. Чтобы это сделать, перейдите по ссылке под этим полем.</p> <p>После вы сможете привязать дополнительное поле Unisender к полю на Вашем сайте.</p>',
+            slug: i18n.t('tooltip.slug'),
             title: '',
-            dateFormat: '<p>Выберите нужный формат даты.</p> <p><strong>dd</strong> - день.</p> <p><strong>mm</strong> - месяц.</p> <p><strong>yyyy</strong> - год.</p>',
-            options: '<p>Укажите варианты для выбора с новой строки каждый.</p>'
+            dateFormat: i18n.t('tooltip.dateFormat'),
+            options: '<p>' + i18n.t('tooltip.options') + '</p>'
         }
     },
     getters: {

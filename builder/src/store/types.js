@@ -1,9 +1,20 @@
+import commonMessage from './common'
+import VueI18n from 'vue-i18n'
+import Vue from "vue";
+
+Vue.config.productionTip = false
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+    messages: commonMessage,
+    locale: document.getElementById('wpselzy-form').getAttribute('data-lang')
+});
 export default {
     state: {
         types: [
             {
                 id: 1,
-                name: 'Имя'
+                name: i18n.t('field.name')
             },
             {
                 id: 2,
@@ -11,27 +22,27 @@ export default {
             },
             {
                 id: 3,
-                name: 'Номер телефона'
+                name: i18n.t('field.phone')
             },
             {
                 id: 4,
-                name: 'Текст'
+                name: i18n.t('field.text')
             },
             {
                 id: 5,
-                name: 'Число'
+                name: i18n.t('field.number')
             },
             {
                 id: 6,
-                name: 'Выбор'
+                name: i18n.t('field.select')
             },
             {
                 id: 7,
-                name: 'Да / Нет'
+                name: i18n.t('field.boolean')
             },
             {
                 id: 8,
-                name: 'Дата'
+                name: i18n.t('field.date')
             },
         ]
     },

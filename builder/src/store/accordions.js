@@ -1,3 +1,14 @@
+import commonMessage from './common'
+import VueI18n from 'vue-i18n'
+import Vue from "vue";
+
+Vue.config.productionTip = false
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+    messages: commonMessage,
+    locale: document.getElementById('wpselzy-form').getAttribute('data-lang')
+});
 export default {
     state: {
         accordions: [
@@ -69,7 +80,7 @@ export default {
         initAccordions(state) {
             state.accordions.push({
                 id: 1,
-                title: 'Твое имя',
+                title: i18n.t('field.name'),
                 slug: 'Name',
                 type: 1,
                 status: false

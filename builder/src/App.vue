@@ -1,16 +1,16 @@
 <template>
     <v-app>
-        <div class="b-unisender-app">
-            <div class="b-unisender-app__inner">
-                <div class="b-unisender-app__block">
-                    <div class="b-unisender-app__title">
-                        Общие настройки
+        <div class="b-selzy-app">
+            <div class="b-selzy-app__inner">
+                <div class="b-selzy-app__block">
+                    <div class="b-selzy-app__title">
+                        {{ $t('message.generalSettings') }}
                     </div>
                     <CommonSettings></CommonSettings>
                 </div>
-                <div class="b-unisender-app__block">
-                    <div class="b-unisender-app__title">
-                        Поля
+                <div class="b-selzy-app__block">
+                    <div class="b-selzy-app__title">
+                        {{ $t('field.title') }}
                     </div>
                     <App></App>
                 </div>
@@ -30,24 +30,24 @@ export default {
     },
     data() {
         return {
-            unisenderHiddenField: document.querySelector('[data-unisender-hidden-field]'),
-            unisenderHiddenFieldStartValue: null,
-            unisenderAdditionalFields: null
+            selzyHiddenField: document.querySelector('[data-selzy-hidden-field]'),
+            selzyHiddenFieldStartValue: null,
+            selzyAdditionalFields: null
 
         }
     },
     created() {
         // eslint-disable-next-line no-undef
-        if (typeof UNISENDER_ADDITIONAL_FIELDS !== 'undefined') {
+        if (typeof SELZY_ADDITIONAL_FIELDS !== 'undefined') {
             // eslint-disable-next-line no-undef
-            this.unisenderAdditionalFields = UNISENDER_ADDITIONAL_FIELDS
-            this.$store.dispatch('setAdditionalFields', this.unisenderAdditionalFields)
+            this.selzyAdditionalFields = SELZY_ADDITIONAL_FIELDS
+            this.$store.dispatch('setAdditionalFields', this.selzyAdditionalFields)
         }
-        if (this.unisenderHiddenField) {
-            this.unisenderHiddenFieldStartValue = this.unisenderHiddenField.getAttribute('value')
+        if (this.selzyHiddenField) {
+            this.selzyHiddenFieldStartValue = this.selzyHiddenField.getAttribute('value')
 
-            if (this.unisenderHiddenFieldStartValue) {
-                this.$store.dispatch('setStartData', this.unisenderHiddenFieldStartValue)
+            if (this.selzyHiddenFieldStartValue) {
+                this.$store.dispatch('setStartData', this.selzyHiddenFieldStartValue)
             } else {
                 this.$store.dispatch('initAccordions')
                 this.$store.dispatch('setDefaultCommonSettingsStyles')
@@ -64,8 +64,8 @@ export default {
         data: {
             deep: true,
             handler() {
-                if (this.unisenderHiddenField) {
-                    this.unisenderHiddenField.setAttribute('value', JSON.stringify(this.data))
+                if (this.selzyHiddenField) {
+                    this.selzyHiddenField.setAttribute('value', JSON.stringify(this.data))
                 }
             }
         }

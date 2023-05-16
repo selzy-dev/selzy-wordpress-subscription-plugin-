@@ -4,26 +4,26 @@
             <v-row>
                 <v-col cols="12">
                     <div class="b-block-title">
-                        Уведомления
+                        {{ $t('message.notification') }}
                     </div>
                 </v-col>
                 <v-col cols="12">
                     <Field
-                        :title="'Подписка прошла успешно'"
+                        :title="$t('message.successSubscribe')"
                         :value="successText"
                         @updateValue="updateSuccessText"
                     ></Field>
                 </v-col>
                 <v-col cols="12">
                     <Field
-                        :title="'Ошибка валидации'"
+                        :title="$t('message.validationError')"
                         :value="validationErrorText"
                         @updateValue="updateValidationErrorText"
                     ></Field>
                 </v-col>
                 <v-col cols="12">
                     <Field
-                        :title="'Ошибка на стороне сервера'"
+                        :title="$t('message.serverError')"
                         :value="serverErrorText"
                         @updateValue="updateServerErrorText"
                     ></Field>
@@ -34,47 +34,47 @@
             <v-row>
                 <v-col cols="12">
                     <div class="b-block-title">
-                        Валидация
+                        {{ $t('field.validate') }}
                     </div>
                 </v-col>
                 <v-col cols="12">
                     <Field
-                        :title="'Минимальная длина'"
+                        :title="$t('message.minLength')"
                         :value="minLengthErrorText"
                         @updateValue="updateMinLengthErrorText"
                     ></Field>
                 </v-col>
                 <v-col cols="12">
                     <Field
-                        :title="'Максимальная длина'"
+                        :title="$t('message.maxLength')"
                         :value="maxLengthErrorText"
                         @updateValue="updateMaxLengthErrorText"
                     ></Field>
                 </v-col>
                 <v-col cols="12">
                     <Field
-                        :title="'Минимальное число'"
+                        :title="$t('message.minNumber')"
                         :value="minNumberErrorText"
                         @updateValue="updateMinNumberErrorText"
                     ></Field>
                 </v-col>
                 <v-col cols="12">
                     <Field
-                        :title="'Масимальное число'"
+                        :title="$t('message.maxNumber')"
                         :value="maxNumberErrorText"
                         @updateValue="updateMaxNumberErrorText"
                     ></Field>
                 </v-col>
 <!--                <v-col cols="12">-->
 <!--                    <Field-->
-<!--                        :title="'Регулярное выражение'"-->
+<!--                        :title="$t('field.regExp')"-->
 <!--                        :value="regExpErrorText"-->
 <!--                        @updateValue="updateRegExpErrorText"-->
 <!--                    ></Field>-->
 <!--                </v-col>-->
                 <v-col cols="12">
                     <Field
-                        :title="'Обязательное поле'"
+                        :title="$t('field.required')"
                         :value="requiredErrorText"
                         @updateValue="updateRequiredErrorText"
                     ></Field>

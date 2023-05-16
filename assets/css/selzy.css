@@ -1,0 +1,206 @@
+.b-selzy-form {
+}
+
+.b-selzy-form._show-message._success-text .b-selzy-form__message_success-text {
+    display: block;
+}
+
+.b-selzy-form._show-message._validation-error-text .b-selzy-form__message_validation-error-text {
+    display: block;
+}
+
+.b-selzy-form._show-message._server-error-text .b-selzy-form__message_server-error-text {
+    display: block;
+}
+
+.b-selzy-form * {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.b-selzy-form .b-selzy-form__header {
+}
+
+.b-selzy-form .b-selzy-form__title {
+}
+
+.b-selzy-form .b-selzy-form__description {
+}
+
+.b-selzy-form .b-selzy-form__main {
+}
+
+.b-selzy-form .b-selzy-form__field {
+}
+
+.b-selzy-form .b-selzy-form__footer {
+}
+.b-selzy-form .b-selzy-form__footer .b-selzy-form__button-box {
+    display: flex;
+    align-items: center;
+}
+
+.b-selzy-form .b-selzy-form__footer .b-selzy-form__button-box.request svg {
+    display: block;
+}
+
+.b-selzy-form .b-selzy-form__footer .b-selzy-form__button-box.request .b-selzy-form__submit-button {
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.7;
+}
+
+.b-selzy-form .b-selzy-form__footer .b-selzy-form__button-box svg {
+    display: none;
+    margin-left: 10px;
+}
+
+.b-selzy-form .b-selzy-form__submit-button {
+    cursor: pointer;
+    transition: opacity 0.1s linear;
+    width: auto;
+    display: inline-block;
+    user-select: none;
+}
+
+.b-selzy-form .b-selzy-form__submit-button:hover {
+    opacity: 0.9;
+}
+
+.b-selzy-form__messages {
+}
+
+.b-selzy-form .b-selzy-form__message {
+    padding: 1em;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    display: none;
+    margin-top: 1em;
+}
+
+.b-selzy-form .b-selzy-form__message_error {
+    border-color: #df1b1b;
+}
+
+.b-selzy-form .b-selzy-form__message_success {
+    border-color: #29bb34;
+}
+
+.b-selzy-form__message_success-text {
+}
+
+.b-selzy-form__message_validation-error-text {
+}
+
+.b-selzy-form__message_server-error-text {
+}
+
+/*field styles*/
+
+.b-selzy-form .b-selzy-field {
+}
+
+.b-selzy-form .b-selzy-field_required .b-selzy-field__label:after {
+    content: '*';
+    line-height: 1;
+    color: #df1b1b;
+}
+
+.b-selzy-form .b-selzy-field._has-error .b-selzy-field__error-text {
+    display: block;
+}
+
+.b-selzy-form .b-selzy-field__label {
+    display: block;
+    width: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    line-height: inherit;
+    margin-bottom: 0.5em;
+}
+
+.b-selzy-form .b-selzy-field__input {
+    display: block;
+    width: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    line-height: inherit;
+    outline: none;
+    margin: 0;
+}
+
+.b-selzy-form .b-selzy-field__error-text {
+    display: none;
+    width: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    color: #df1b1b;
+    line-height: inherit;
+    margin-top: 0.5em;
+    animation: selzyErrorTextShow 0.2s linear forwards;
+}
+
+@keyframes selzyErrorTextShow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.b-selzy-form .b-selzy-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.b-selzy-form .b-selzy-checkbox._has-error .b-selzy-checkbox__error-text {
+    display: block;
+}
+
+.b-selzy-form .b-selzy-checkbox__input {
+    height: 18px;
+    width: 18px;
+    margin: 0 1em 0 0;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    position: relative;
+    border: none;
+    background: none;
+}
+
+.b-selzy-form .b-selzy-checkbox__input:before {
+    display: none !important;
+}
+
+.b-selzy-form .b-selzy-checkbox__input:after {
+    display: none !important;
+}
+
+.b-selzy-form .b-selzy-checkbox__label {
+    width: calc(100% - 18px - 1em);
+    max-width: 100%;
+    position: relative;
+    top: -0.25em;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+.b-selzy-form .b-selzy-checkbox__error-text {
+    display: none;
+    width: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    color: #df1b1b;
+    line-height: inherit;
+    margin-top: 0.5em;
+    animation: selzyErrorTextShow 0.2s linear forwards;
+}

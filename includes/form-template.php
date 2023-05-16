@@ -1,6 +1,6 @@
 <?php
 
-class WPUNISENDER_FormTemplate {
+class WPSELZY_FormTemplate {
 
 	public static function get_default( $prop = 'form' ) {
 		if ( 'form' == $prop ) {
@@ -9,11 +9,12 @@ class WPUNISENDER_FormTemplate {
 			$template = null;
 		}
 
-		return apply_filters( 'wpunisender_default_template', $template, $prop );
+		return apply_filters( 'wpselzy_default_template', $template, $prop );
 	}
 
 	public static function form() {
 		$template = "";
+
 		return trim( $template );
 	}
 

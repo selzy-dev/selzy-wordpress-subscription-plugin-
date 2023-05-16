@@ -2,7 +2,7 @@
     <div class="b-offsets">
         <div class="b-offsets__external">
             <div class="b-offset__part-title">
-                Внешний
+                {{ $t('offset.outer') }}
             </div>
             <div class="b-offsets__line">
                 <input type="text" class="b-offsets__input" :value="marginArray[0]" placeholder="-" @input="updateMarginTop">
@@ -11,7 +11,7 @@
                 <input type="text" class="b-offsets__input" :value="marginArray[3]" placeholder="-" @input="updateMarginLeft">
                 <div class="b-offsets__internal">
                     <div class="b-offset__part-title">
-                        Внутренний
+                        {{ $t('offset.inner') }}
                     </div>
                     <div class="b-offsets__line">
                         <input type="text" class="b-offsets__input" :value="paddingArray[0]" placeholder="-" @input="updatePaddingTop">

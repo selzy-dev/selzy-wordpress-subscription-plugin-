@@ -3,10 +3,10 @@
         <v-row>
             <v-col cols="12">
                 <div class="b-label-title">
-                    Валидация
+                    {{ $t('field.validate') }}
                 </div>
                 <Checkbox
-                    :label="'Обязательное поле'"
+                    :label="$t('field.required')"
                     :value="rules.required"
                     @updateValue="changeRequired"
                     :disabled="typeId === 1 || typeId === 2"
@@ -14,7 +14,7 @@
             </v-col>
             <v-col cols="12" v-if="showMinNumber">
                 <Field
-                    :title="'Минимум'"
+                    :title="$t('field.min')"
                     :value="rules.minNumber"
                     :min="0"
                     :type="'number'"
@@ -23,7 +23,7 @@
             </v-col>
             <v-col cols="12" v-if="showMaxNumber">
                 <Field
-                    :title="'Максимум'"
+                    :title="$t('field.max')"
                     :value="rules.maxNumber"
                     :type="'number'"
                     @updateValue="changeMaxNumber"
@@ -31,7 +31,7 @@
             </v-col>
             <v-col cols="12" v-if="showMinLength">
                 <Field
-                    :title="'Минимальная длина'"
+                    :title="$t('field.minLength')"
                     :value="rules.minLength"
                     :min="0"
                     :type="'number'"
@@ -40,7 +40,7 @@
             </v-col>
             <v-col cols="12" v-if="showMaxLength">
                 <Field
-                    :title="'Максимальная длина'"
+                    :title="$t('field.maxLength')"
                     :value="rules.maxLength"
                     :type="'number'"
                     @updateValue="changeMaxLength"
@@ -48,7 +48,7 @@
             </v-col>
             <v-col cols="12" v-if="showRegEXp">
                 <Field
-                    :title="'Регулярное выражение'"
+                    :title="$t('field.regExp')"
                     :value="rules.regExp"
                     @updateValue="changeRegExp"
                 ></Field>

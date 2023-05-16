@@ -9,21 +9,21 @@
                 </v-col>
                 <v-col cols="4">
                     <div class="b-table-colm-title b-table-colm-title_primary" @click="toggleAccordion">
-                        {{ data.title ? data.title : '(нет заголовка)'  }}
+                        {{ data.title ? data.title : $t('field.noTitle')  }}
                     </div>
                     <div class="b-field-actions">
                         <div class="b-field-actions__item" @click="toggleAccordion">
-                            Редактировать
+                            {{ $t('field.edit') }}
                         </div>
                         <div class="b-field-actions__item" v-if="data.id !== 2" @click="duplicateAccordion">
-                            Дублировать
+                            {{ $t('field.duplicate') }}
                         </div>
                         <div class="b-field-actions__item" v-if="data.id !== 2">
-                            <span @click="confirm = true">Удалить</span>
+                            <span @click="confirm = true">{{ $t('field.delete') }}</span>
                             <div class="b-confirm" :class="confirm ? 'active' : ''">
-                                <div class="b-confirm__item">Вы уверены?</div>
-                                <a class="b-confirm__item b-confirm__item_red" @click="removeAccordion">Убрать</a>
-                                <a class="b-confirm__item b-confirm__item_gray" @click="confirm = false">Отмена</a>
+                                <div class="b-confirm__item">{{ $t('field.confirmDelete') }}</div>
+                                <a class="b-confirm__item b-confirm__item_red" @click="removeAccordion">{{ $t('field.delete') }}</a>
+                                <a class="b-confirm__item b-confirm__item_gray" @click="confirm = false">{{ $t('field.cancel') }}</a>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
             <v-row>
                 <v-col cols="12" md="6">
                     <Field
-                        :title="'Заголовок поля'"
+                        :title="$t('field.fieldTitle')"
                         :value="data.title"
                         :change="true"
                         @updateValue="changeName"
@@ -53,7 +53,7 @@
                 <v-col cols="12" md="6">
                     <Field
                         v-if="data.type === 2 || data.type === 3"
-                        :title="'Переменная дополнительного поля в Unisender'"
+                        :title="$t('field.additionalField')"
                         :hint="tooltips.slug"
                         :value="data.slug"
                         :disabled="data.id === 1 || data.id === 2 || data.type === 3"
@@ -61,21 +61,21 @@
                     ></Field>
                     <Select
                         v-if="data.type !== 2 && data.type !== 3"
-                        :title="'Переменная дополнительного поля в Unisender'"
+                        :title="$t('field.additionalField')"
                         :hint="tooltips.slug"
                         :value="data.slug"
                         :isDouble="true"
-                        :options="unisenderAdditionalFields"
+                        :options="selzyAdditionalFields"
                         @updateValue="changeSlug"
                     ></Select>
-                    <a v-if="data.type !== 2" href="https://cp.selzy.com/ua/v5/contacts/additional-fields" target="_blank" class="b-link" style="display: inline-block; margin-top: 10px;">Перейти в настройки дополнительных полей Sezly</a>
-                    <div v-if="data.type === 2" class="b-text b-text_gray" style="margin-top: 10px;">Email является обязательным полем при отправке формы на платформу Selzy</div>
+                    <a v-if="data.type !== 2" :href="'https://cp.selzy.com/en/v5/contacts/additional-fields'" target="_blank" class="b-link" style="display: inline-block; margin-top: 10px;">{{ $t('field.settings') }}</a>
+                    <div v-if="data.type === 2" class="b-text b-text_gray" style="margin-top: 10px;">{{ $t('field.emailRequired') }}</div>
                 </v-col>
                 <v-col cols="12" md="6">
                     <v-row>
                         <v-col cols="12" v-if="data.type === 6">
                             <Field
-                                :title="'Варианты'"
+                                :title="$t('field.options')"
                                 :hint="tooltips.options"
                                 :type="'textarea'"
                                 :value="options"
@@ -84,7 +84,7 @@
                         </v-col>
                         <v-col cols="12" v-if="data.type === 8">
                             <Select
-                                :title="'Формат даты'"
+                                :title="$t('field.dateFormat')"
                                 :hint="tooltips.dateFormat"
                                 :value="dateType"
                                 :options="['dd.mm.yyyy', 'dd/mm/yyyy', 'mm.dd.yyyy', 'mm/dd/yyyy']"
@@ -210,7 +210,7 @@ export default {
         dateType() {
             return this.data.dateType ? this.data.dateType : null
         },
-        unisenderAdditionalFields() {
+        selzyAdditionalFields() {
             return this.$store.getters.additionalFields
         },
         tooltips() {
